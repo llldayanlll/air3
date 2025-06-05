@@ -11,9 +11,6 @@ body, html {
   font-family: sans-serif;
 }
 
-.spacer {
-  height: 100vh;
-}
 
 .panels {
   position: relative;
