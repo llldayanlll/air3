@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background: black;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+.spacer {
+  height: 100vh;
+}
+
+.panels {
+  position: relative;
+  height: 600vh; /* 6 images * 100vh */
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(1.2);
+  pointer-events: none;
+  z-index: 1;
+  background: black;
+}
+
+.panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
+}
