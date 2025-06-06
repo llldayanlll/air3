@@ -1,22 +1,35 @@
-gsap.registerPlugin(ScrollTrigger);
+// Preload images
+const imageSources = ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp'];
+let loadedCount = 0;
 
-const isMobile = window.innerWidth <= 768;
+imageSources.forEach(src => {
+  const img = new Image();
+  img.src = src;
+  img.onload = () => {
+    loadedCount++;
+    if (loadedCount === imageSources.length) {
+      // All loaded
+      document.getElementById('loader').style.display = 'none';
+      document.querySelector('.panels').classList.remove('hidden');
+      initAnimations();
+    }
+  };
+});
 
-document.querySelectorAll('.panel:not(.first)').forEach(panel => {
-  gsap.fromTo(panel, 
-    { opacity: 0, y: 100 },
-    {
+function initAnimations() {
+  gsap.utils.toArray(".panel, .panels > div:not(.panel)").forEach((panel, index) => {
+    gsap.fromTo(panel, { opacity: 0, y: 100 }, {
       opacity: 1,
       y: 0,
       duration: 1,
       ease: 'power2.out',
       scrollTrigger: {
         trigger: panel,
-        start: "top 90%",
+        start: "top 80%",
         end: "top 60%",
         scrub: true,
         toggleActions: "play none none reverse"
       }
-    }
-  );
-});
+    });
+  });
+}
