@@ -1,27 +1,22 @@
-window.addEventListener("load", () => {
-  gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
-  const panels = document.querySelectorAll(".panel");
+const isMobile = window.innerWidth <= 768;
 
-  panels.forEach((panel, i) => {
-    gsap.to(panel, {
+document.querySelectorAll('.panel:not(.first)').forEach(panel => {
+  gsap.fromTo(panel, 
+    { opacity: 0, y: 100 },
+    {
       opacity: 1,
-      scale: 1,
-      ease: "power2.out",
+      y: 0,
+      duration: 1,
+      ease: 'power2.out',
       scrollTrigger: {
-        trigger: ".panels",
-        start: () => `top+=${i * window.innerHeight} top`,
-        end: () => `top+=${(i + 1) * window.innerHeight} top`,
+        trigger: panel,
+        start: "top 90%",
+        end: "top 60%",
         scrub: true,
-        onLeave: () => {
-          gsap.to(panel, {
-            opacity: 0,
-            scale: 0.8,
-            duration: 1,
-            ease: "power2.inOut"
-          });
-        }
+        toggleActions: "play none none reverse"
       }
-    });
-  });
+    }
+  );
 });
