@@ -8,7 +8,6 @@ imageSources.forEach(src => {
   img.onload = () => {
     loadedCount++;
     if (loadedCount === imageSources.length) {
-      // All loaded
       document.getElementById('loader').style.display = 'none';
       document.querySelector('.panels').classList.remove('hidden');
       initAnimations();
@@ -17,18 +16,37 @@ imageSources.forEach(src => {
 });
 
 function initAnimations() {
-  gsap.utils.toArray(".panel, .panels > div:not(.panel)").forEach((panel, index) => {
-    gsap.fromTo(panel, { opacity: 0, y: 100 }, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: 'power2.out',
+  const panels = gsap.utils.toArray(".panel, .panels > div:not(.panel)");
+
+  panels.forEach((panel, i) => {
+    gsap.fromTo(panel,
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.8, // increased for smoother transition
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: panel,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+          toggleActions: "play reverse play reverse"
+        }
+      }
+    );
+
+    // Fade out as user scrolls past
+    gsap.to(panel, {
+      opacity: 0,
+      y: -100,
+      duration: 1.8,
+      ease: "power3.inOut",
       scrollTrigger: {
         trigger: panel,
-        start: "top 80%",
-        end: "top 60%",
-        scrub: true,
-        toggleActions: "play none none reverse"
+        start: "top 40%",
+        end: "top 0%",
+        scrub: true
       }
     });
   });
