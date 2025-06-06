@@ -12,8 +12,8 @@ body, html {
 }
 
 body > div:first-of-type img {
-  width: 50%;
-  height: 50vh;
+  width: 75%;
+  height: 75vh;
   object-fit: contain;
   display: block;
   margin: 0 auto;
