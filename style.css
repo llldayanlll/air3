@@ -53,3 +53,19 @@ body, html {
   object-fit: contain;
   border-radius: 12px;
 }
+
+.panels > div:first-child {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.panels > div:first-child img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
