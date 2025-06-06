@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AirPods Pro 2nd Gen – BDT 449</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-  <!-- Preloader -->
+  <!-- Loader -->
   <div id="loader">
-    <div class="loader-text">Loading...</div>
+    <div class="spinner"></div>
+    <p>Loading...</p>
   </div>
 
   <!-- Panels -->
-  <div class="panels">
-    <div class="panel"><img src="1.webp" alt=""></div>
+  <div class="panels hidden">
+    <div><img src="1.webp" alt=""></div>
     <div class="panel"><img src="2.webp" alt=""></div>
     <div class="panel"><img src="3.webp" alt=""></div>
     <div class="panel"><img src="4.webp" alt=""></div>
