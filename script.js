@@ -22,7 +22,7 @@ function initAnimations() {
       opacity: 1,
       y: 0,
       duration: 1,
-      ease: 'power2.out',
+      ease: 'power4.out',
       scrollTrigger: {
         trigger: panel,
         start: "top 80%",
