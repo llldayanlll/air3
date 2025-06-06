@@ -21,8 +21,8 @@ function initAnimations() {
     gsap.fromTo(panel, { opacity: 0, y: 100 }, {
       opacity: 1,
       y: 0,
-      duration: 1,
-      ease: 'power4.out',
+      duration: 2,
+      ease: 'sine.inOut',
       scrollTrigger: {
         trigger: panel,
         start: "top 80%",
