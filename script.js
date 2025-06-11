@@ -15,6 +15,7 @@ imageSources.forEach(src => {
     }
   };
 });
+
 function initAnimations() {
   gsap.utils.toArray(".panel, .panels > div:not(.panel)").forEach((panel, index) => {
     gsap.fromTo(panel, { opacity: 0, y: 100 }, {
@@ -32,7 +33,7 @@ function initAnimations() {
     });
   });
 
-  // ✅ This must be OUTSIDE the loop and OUTSIDE the scrollTrigger object
+  // Facebook button scroll trigger
   ScrollTrigger.create({
     trigger: ".panel:last-child",
     start: "top 80%",
@@ -46,10 +47,5 @@ function initAnimations() {
       btn.classList.remove("show");
       setTimeout(() => btn.classList.add("hidden"), 500); // wait for fade-out
     }
-  });
-}
-
-
-    });
   });
 }
