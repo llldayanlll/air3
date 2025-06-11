@@ -29,6 +29,21 @@ function initAnimations() {
         end: "top 60%",
         scrub: true,
         toggleActions: "play none none reverse"
+        ScrollTrigger.create({
+  trigger: ".panel:last-child",
+  start: "top 80%",
+  onEnter: () => {
+    const btn = document.getElementById("fb-button");
+    btn.classList.remove("hidden");
+    setTimeout(() => btn.classList.add("show"), 10); // smooth fade-in
+  },
+  onLeaveBack: () => {
+    const btn = document.getElementById("fb-button");
+    btn.classList.remove("show");
+    setTimeout(() => btn.classList.add("hidden"), 500); // wait for fade-out
+  }
+});
+
       }
     });
   });
